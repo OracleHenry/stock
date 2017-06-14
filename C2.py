@@ -21,8 +21,8 @@ for x in range(1,33):
 #for x1, y1 in ra:
     for c in codes[0:99]:
         good = True
-        df = pd.DataFrame(ts.get_hist_data(code=str(c), start='2017-06-07', end='2017-06-13')).fillna(-1)
-        p_change = list(df['p_change'])
+        df = pd.DataFrame(ts.get_hist_data(code=str(c), start='2017-06-07', end='2017-06-14')).fillna(-1)
+        p_change = list((df['p_change']))
 
         for i in p_change:
             if i < 0:

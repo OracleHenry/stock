@@ -9,12 +9,12 @@ names=pd.DataFrame(ts.get_stock_basics())
 
 goodlist=[]
 
-
-for c in codes:
+try:
+    for c in codes:
         good = True
-        df = pd.DataFrame(ts.get_hist_data(code=str(c), start='2017-06-12', end='2017-06-13')).fillna(-1)
-        if df['p_change'] is not None:
-            p_change = list(df['p_change'])
+        df = pd.DataFrame(ts.get_hist_data(code=str(c), start='2017-06-13', end='2017-06-14')).dropna()
+        if not df.empty:
+            p_change = list(df['p_change'].fillna(0))
             if p_change:
                 for i in p_change:
                     if i:
@@ -25,18 +25,18 @@ for c in codes:
                     if str(c).startswith('002') or str(c).startswith('30'):
                         continue
                     else:
-                        print(c)
+                        #print(c)
                         goodlist.append(c)
 
                 else:
                     continue
-        
-        
+except(Exception) as e:
+    print(e)
+else:
+    print((names.ix[goodlist])[['name','industry']])
+   
 
-#######################
 
 
-names = names.reindex(goodlist)
-for n in names['name']:
-        print(n)
+
 

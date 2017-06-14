@@ -1,5 +1,5 @@
 import tushare as ts
 import pandas as pd
-df=pd.DataFrame(ts.get_today_all())
-df1=df[['name','code']]
-print(df1)
+#print(ts.top_list('2017-06-13')[['name','pchange','reason']])
+df = ts.day_boxoffice() 
+print(df)
