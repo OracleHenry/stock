@@ -14,20 +14,21 @@ for c in codes:
         good = True
         df = pd.DataFrame(ts.get_hist_data(code=str(c), start='2017-06-07', end='2017-06-13')).fillna(-1)
         p_change = list(df['p_change'])
+        if p_change:
+            for i in p_change:
+                if i < 0:
+                    good = False
+                    continue
+            if good:
+                if str(c).startswith('002') or str(c).startswith('30'):
+                    continue
+                else:
+                    print(c)
+                    goodlist.append(c)
 
-        for i in p_change:
-            if i < 0:
-                good = False
-                continue
-        if good:
-            if str(c).startswith('002') or str(c).startswith('30'):
-                continue
             else:
-                print(c)
-                goodlist.append(c)
-            
-        else:
-            continue
+                continue
+        
 
 #######################
 
