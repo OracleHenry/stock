@@ -24,7 +24,7 @@ for c in codes:
                 continue
             else:
                 print(c)
-                #goodlist.append(c)
+                goodlist.append(c)
             
         else:
             continue
@@ -32,10 +32,7 @@ for c in codes:
 #######################
 
 
-#names = names.reindex(goodlist)
-#for n in names['name']:
-#        if str(n).lower().startswith('n'):
-#            continue
-#        else:
-#            print(n)
+names = names.reindex(goodlist)
+for n in names['name']:
+        print(n)
 
