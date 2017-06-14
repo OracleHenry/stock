@@ -16,9 +16,10 @@ for c in codes:
         p_change = list(df['p_change'])
         if p_change:
             for i in p_change:
-                if i < 0:
+                if i:
+                  if i < 0:
                     good = False
-                    continue
+                    break
             if good:
                 if str(c).startswith('002') or str(c).startswith('30'):
                     continue
