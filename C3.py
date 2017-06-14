@@ -17,7 +17,7 @@ for c in codes:
         if p_change:
             for i in p_change:
                 if i:
-                  if i < 0:
+                  if i <= 0:
                     good = False
                     break
             if good:
